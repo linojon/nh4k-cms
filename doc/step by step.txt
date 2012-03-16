@@ -38,8 +38,6 @@ Asset pipeline for css
   edit assets/stylesheets/application.css
   
 Heroku
-  $ gem install heroku
-  $ heroku create
   Gemfile
     gem 'heroku'
     group :development, :test do
@@ -55,12 +53,40 @@ Heroku
   $ git init
   $ git add .
   $ git commit -a -m "initial commit"
+  create repos on github
+  $ git remote add origin git@github.com:linoj/nh4k.git
+  $ git push origin master
+  
+  $ heroku create --stack cedar
+  => Creating morning-journey-3438... done, stack is cedar
+  $ heroku apps:rename nh4k
+  
+  edit config/application.rb
+    if defined?(Bundler)
+      # If you precompile assets before deploying to production, use this line
+      #Bundler.require(*Rails.groups(:assets => %w(development test)))
+      # If you want your assets lazily compiled in production, use this line
+      Bundler.require(:default, :assets, Rails.env)
+    end
+    
   
   $ git push heroku master
-  $ heroku rake db:migrate
-  $ heroku apps:rename nh4k
+  $ heroku run rake db:migrate
   $ heroku open
-  http://nh4k.heroku.com
+  
+  
+  
+to upload local db:
+  $ gem install taps
+  log out locally
+  $ heroku db:push db/development.sqlite3
+  
+  xxxxxxxxx
+to run using ruby 1.9.3 (instead of 1.9.2)
+  ref: http://railsapps.github.com/rails-heroku-tutorial.html
+  $ heroku plugins:install https://github.com/heroku/heroku-labs.git
+  $ heroku labs:enable user_env_compile -a nh4k
+  
 
 !!!!!!!!!!!!!!!!!!!!!!
 SUMMARY - to redeploy
