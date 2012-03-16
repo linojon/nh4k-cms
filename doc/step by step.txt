@@ -10,7 +10,7 @@ $ cd ~/rails
 $ refinerycms nh4k
 
 
-rails g refinery:engine mountain name:string elevation:integer lat:decimal lng:decimal trailsnh:string netc:string amc:string notes:text
+$ rails g refinery:engine mountain name:string elevation:integer lat:decimal lng:decimal trailsnh:string netc:string amc:string notes:text
 
 bundle install
 rails generate refinery:mountains
@@ -21,6 +21,54 @@ Gemfile
   gem 'haml-rails'
   
 replace vendor/extensions/mountains/app/views/refinery/mountains/mountains/show.html.erb --> show.html.haml
+
+
+Asset pipeline for css
+  change we want is originally in core/app/views/refinery/_head.html.erb
+ 
+  $ rake refinery:override view=refinery/_head
+  $ rm app/views/refinery/_header.html.erb
+  edit views/refinery/_head.html.erb
+    replace
+        <%= stylesheet_link_tag "application", "formatting", "theme" %>
+        <%= stylesheet_link_tag "home" if home_page? %>
+    with
+        <%= stylesheet_link_tag "application" %>
+        
+  edit assets/stylesheets/application.css
+  
+Heroku
+  $ gem install heroku
+  $ heroku create
+  Gemfile
+    gem 'heroku'
+    group :development, :test do
+      gem 'sqlite3'
+    end
+    group :production do
+      gem 'thin'
+      gem 'pg'
+    end
+    
+  $ bundle install --without production
+  
+  $ git init
+  $ git add .
+  $ git commit -a -m "initial commit"
+  
+  $ git push heroku master
+  $ heroku rake db:migrate
+  $ heroku apps:rename nh4k
+  $ heroku open
+  http://nh4k.heroku.com
+
+!!!!!!!!!!!!!!!!!!!!!!
+SUMMARY - to redeploy
+$ git push heroku 
+$ heroku rake db:migrate
+$ heroku open
+!!!!!!!!!!!!!!!!!!!!!!
+
 
 
 ============
