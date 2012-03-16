@@ -1,0 +1,34 @@
+es:
+  refinery:
+    plugins:
+      mountains:
+        title: Mountains
+#        article: masculino/femenino
+    mountains:
+      admin:
+        mountains:
+          actions:
+            create_new: Crear nuevo mountain
+            reorder: Reordenar mountains
+            reorder_done: Reordenación de mountains completada
+          records:
+            title: Mountains
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay mountains todavía. Pulsa en "Crear nuevo Mountain" para crear tu primer mountain.
+          mountain:
+            view_live_html: Ver este mountain como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este mountain
+            delete: Borrar este mountain para siempre
+      mountains:
+        show:
+          other: Otros mountains
+  activerecord:
+    attributes:
+      'refinery/mountains/mountain':
+        name: Name
+        elevation: Elevation
+        lat: Lat
+        lng: Lng
+        trailsnh: Trailsnh
+        netc: Netc
+        notes: Notes

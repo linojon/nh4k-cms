@@ -1,0 +1,80 @@
+<%= form_for [refinery, :mountains_admin, @mountain] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @mountain,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :elevation -%>
+    <%= f.number_field :elevation  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :lat -%>
+    <%= f.text_field :lat  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :lng -%>
+    <%= f.text_field :lng  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :trailsnh -%>
+    <%= f.text_field :trailsnh  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :netc -%>
+    <%= f.text_field :netc  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :amc -%>
+    <%= f.text_field :amc  -%>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:notes].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/mountains/mountain", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:notes].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.mountains.admin.mountains.mountain'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @mountain.name) %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

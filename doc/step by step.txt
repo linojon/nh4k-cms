@@ -1,0 +1,34 @@
+
+$ sudo port uninstall imagemagick
+$ sudo port selfupdate
+$ sudo port upgrade outdated
+$ brew install imagemagick
+
+$ rmv use 1.9.3
+$ gem install refinerycms
+$ cd ~/rails
+$ refinerycms nh4k
+
+
+rails g refinery:engine mountain name:string elevation:integer lat:decimal lng:decimal trailsnh:string netc:string amc:string notes:text
+
+bundle install
+rails generate refinery:mountains
+rake db:migrate
+rake db:seed
+
+Gemfile
+  gem 'haml-rails'
+  
+replace vendor/extensions/mountains/app/views/refinery/mountains/mountains/show.html.erb --> show.html.haml
+
+
+============
+rails g refinery:engine photos caption:string hike:engine hike_id:integer pic:photo notes:text
+
+rails g refinery:engine hikes title:string mountain:engine mountain_id:integer difficulty:string route:text date:date start_time:time end_time:time  weather:text blog:text winter:boolean party:text notes:text 
+
+mountain info
+photo gallery
+printable maps
+hikes blog

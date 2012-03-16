@@ -1,0 +1,7 @@
+#body_content
+  #body
+    #mountain
+      - @mountains.each do |mountain|
+        .mountain
+          %h2= link_to "#{mountain.name} (#{number_with_delimiter mountain.elevation, :delimiter => ','})", refinery.mountains_mountain_path(mountain)
+          

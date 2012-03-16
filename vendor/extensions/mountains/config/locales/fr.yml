@@ -1,0 +1,33 @@
+fr:
+  refinery:
+    plugins:
+      mountains:
+        title: Mountains
+    mountains:
+      admin:
+        mountains:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Mountain
+            reorder: Réordonner les Mountains
+            reorder_done: Fin de réordonnancement des Mountains
+          records:
+            title: Mountains
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Mountain. Cliquer sur "Créer un(e) nouve(au/l/lle) Mountain" pour créer votre premi(er/ère) mountain.'
+          mountain:
+            view_live_html: Voir ce(t/tte) mountain <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) mountain
+            delete: Supprimer définitivement ce(t/tte) mountain
+      mountains:
+        show:
+          other: Autres Mountains
+  activerecord:
+    attributes:
+      'refinery/mountains/mountain':
+        name: Name
+        elevation: Elevation
+        lat: Lat
+        lng: Lng
+        trailsnh: Trailsnh
+        netc: Netc
+        notes: Notes

@@ -1,0 +1,33 @@
+nb:
+  refinery:
+    plugins:
+      mountains:
+        title: Mountains
+    mountains:
+      admin:
+        mountains:
+          actions:
+            create_new: Lag en ny Mountain
+            reorder: Endre rekkefølgen på Mountains
+            reorder_done: Ferdig å endre rekkefølgen Mountains
+          records:
+            title: Mountains
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Mountains enda. Klikk på "Lag en ny Mountain" for å legge til din første mountain.
+          mountain:
+            view_live_html: Vis hvordan denne mountain ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne mountain
+            delete: Fjern denne mountain permanent
+      mountains:
+        show:
+          other: Andre Mountains
+  activerecord:
+    attributes:
+      'refinery/mountains/mountain':
+        name: Name
+        elevation: Elevation
+        lat: Lat
+        lng: Lng
+        trailsnh: Trailsnh
+        netc: Netc
+        notes: Notes

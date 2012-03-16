@@ -1,0 +1,11 @@
+<% content_for :body_content_left do %>
+  <ul id="mountains">
+    <% @mountains.each do |mountain| %>
+      <li>
+        <%= link_to mountain.name, refinery.mountains_mountain_path(mountain) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

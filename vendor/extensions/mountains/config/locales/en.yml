@@ -1,0 +1,34 @@
+en:
+  refinery:
+    plugins:
+      mountains:
+        title: Mountains
+    mountains:
+      admin:
+        mountains:
+          actions:
+            create_new: Add New Mountain
+            reorder: Reorder Mountains
+            reorder_done: Done Reordering Mountains
+          records:
+            title: Mountains
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Mountains yet. Click "Add New Mountain" to add your first mountain.
+          mountain:
+            view_live_html: View this mountain live <br/><em>(opens in a new window)</em>
+            edit: Edit this mountain
+            delete: Remove this mountain forever
+      mountains:
+        show:
+          other: Other Mountains
+  activerecord:
+    attributes:
+      'refinery/mountains/mountain':
+        name: Name
+        elevation: Elevation
+        lat: Lat
+        lng: Lng
+        trailsnh: Trailsnh
+        netc: Netc
+        amc: Amc
+        notes: Notes

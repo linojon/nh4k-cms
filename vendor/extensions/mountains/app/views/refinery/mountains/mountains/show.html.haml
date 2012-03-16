@@ -1,0 +1,20 @@
+#body_content
+  #body
+    #mountain
+      %h1= "#{@mountain.name} (#{number_with_delimiter @mountain.elevation, :delimiter => ','})"
+      %h2 My Hikes
+      %p
+        None
+      - if @mountain.notes.present?
+        %h2 Notes
+        = raw @mountain.notes
+      %h2 
+        Links for #{@mountain.name}
+        %ul
+          - if @mountain.trailsnh.present?
+            %li= link_to "TrailsNH", @mountain.trailsnh
+          - if @mountain.netc.present?
+            %li= link_to "New England Trails Conditions", @mountain.netc
+          - if @mountain.amc.present?
+            %li= link_to "AMC", @mountain.amc
+      .back= link_to "Back to Mountains", refinery.mountains_mountains_path

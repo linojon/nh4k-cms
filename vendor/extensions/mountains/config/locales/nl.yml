@@ -1,0 +1,33 @@
+nl:
+  refinery:
+    plugins:
+      mountains:
+        title: Mountains
+    mountains:
+      admin:
+        mountains:
+          actions:
+            create_new: Maak een nieuwe Mountain
+            reorder: Wijzig de volgorde van de Mountains
+            reorder_done: Klaar met het wijzingen van de volgorde van de Mountains
+          records:
+            title: Mountains
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Mountains. Druk op 'Maak een nieuwe Mountain' om de eerste aan te maken.
+          mountain:
+            view_live_html: Bekijk deze mountain op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze mountain
+            delete: Verwijder deze mountain voor eeuwig
+      mountains:
+        show:
+          other: Andere Mountains
+  activerecord:
+    attributes:
+      'refinery/mountains/mountain':
+        name: Name
+        elevation: Elevation
+        lat: Lat
+        lng: Lng
+        trailsnh: Trailsnh
+        netc: Netc
+        notes: Notes
