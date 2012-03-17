@@ -51,21 +51,15 @@ header {
 
 #banner {
   background-color: #A9D5FA;
+  background-image: image-url("lafayette-banner-2048x85.jpg");
   padding: 0;
+  height: 85px;
   font-weight: normal;
   font-style: italic;
   color: #FFF;
   -moz-box-shadow: 0 2px 8px 2px #000;
   -webkit-box-shadow: 0 2px 6px 2px #000;
   margin-bottom: 30px;
-  p {
-    margin: 0;
-    padding-top: 0;
-  }
-  .image-align-left {
-    padding: 0;
-    margin: 0;
-  }
 }
 
 #body_content {
