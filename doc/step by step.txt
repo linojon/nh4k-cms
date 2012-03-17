@@ -61,17 +61,14 @@ Heroku
   => Creating morning-journey-3438... done, stack is cedar
   $ heroku apps:rename nh4k
   
-  edit config/application.rb
-    if defined?(Bundler)
-      # If you precompile assets before deploying to production, use this line
-      #Bundler.require(*Rails.groups(:assets => %w(development test)))
-      # If you want your assets lazily compiled in production, use this line
-      Bundler.require(:default, :assets, Rails.env)
-    end
+  $ rake assets:clean
+  $ RAILS_ENV=production bundle exec rake assets:precompile
+  $ git add public/assets/
+  $ git commit -am "precompile"
     
-  
-  $ git push heroku master
+  $ git push heroku
   $ heroku run rake db:migrate
+  $ heroku run rake db:seed
   $ heroku open
   
   
@@ -79,6 +76,10 @@ Heroku
 to upload local db:
   $ gem install taps
   log out locally
+  $ heroku db:push db/development.sqlite3
+  => Taps Server Error: PGError: ERROR:  time zone displacement out of range:
+  $ rvm use 1.9.2
+  $ bundle install
   $ heroku db:push db/development.sqlite3
   
   xxxxxxxxx
@@ -90,12 +91,26 @@ to run using ruby 1.9.3 (instead of 1.9.2)
 
 !!!!!!!!!!!!!!!!!!!!!!
 SUMMARY - to redeploy
+$ RAILS_ENV=production bundle exec rake assets:precompile
+$ git add .
+$ git commit -a -m "precompile"
 $ git push heroku 
-$ heroku rake db:migrate
+$ heroku run rake db:migrate (if needed)
+$ heroku run rake db:seed (if needed)
 $ heroku open
+$ rake assets:clean
 !!!!!!!!!!!!!!!!!!!!!!
 
-
+xxxxxxxxxx
+if figure out how to get heroku to compile assets
+    edit config/application.rb
+      if defined?(Bundler)
+        # If you precompile assets before deploying to production, use this line
+        #Bundler.require(*Rails.groups(:assets => %w(development test)))
+        # If you want your assets lazily compiled in production, use this line
+        Bundler.require(:default, :assets, Rails.env)
+      end
+    
 
 ============
 rails g refinery:engine photos caption:string hike:engine hike_id:integer pic:photo notes:text
